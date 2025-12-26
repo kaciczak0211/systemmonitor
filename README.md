@@ -1,61 +1,49 @@
-# System Monitor (GUI)
+# System Monitor (Web & Docker)
 
-A lightweight, cross-platform system monitoring tool built with Python. It provides a modern, dark-themed dashboard to visualize real-time system resources.
+A lightweight, cross-platform system monitoring dashboard. It visualizes real-time CPU, Memory, and Disk usage in a clean web interface.
 
 ## Features
-- **CPU Usage**: Real-time percentage tracking.
-- **Memory (RAM)**: Visualizes used vs. total memory with a progress bar.
-- **Storage**: Monitors disk usage for the root partition.
-  - *Smart Calculation*: automatically adapts unit sizing for macOS (Base-10 GB) vs. Linux (Base-2 GiB) to match native system reporting.
-- **Modern UI**: Uses `ttkbootstrap` 'superhero' theme for a clean, professional look.
+- **CPU**: Real-time percentage tracking.
+- **Memory**: Visual used vs. total RAM.
+- **Storage**: Monitors root partition disk usage (Smart Base-10 scaling for macOS).
+- **Web Interface**: Auto-refreshing dashboard accessible from any browser.
 
-## Prerequisites
-You need **Python 3.x** installed on your system.
+## Quick Start (Docker)
+The easiest way to run the monitor is using Docker.
 
-### Dependencies
-The project relies on two external libraries:
-- `psutil`: For fetching system metrics.
-- `ttkbootstrap`: For the modern GUI themes.
+1. **Build the image**:
+   ```bash
+   docker build -t system-monitor .
+   ```
+2. **Run the container**:
+   ```bash
+   docker run -p 5001:5001 system-monitor
+   ```
+3. **Open Dashboard**:
+   Go to [http://localhost:5001](http://localhost:5001) in your browser.
 
-## Installation & Usage
+## Manual Installation (No Docker)
+If you prefer running it directly with Python:
 
-### 1. Setup (First Time Only)
-Open your terminal and navigate to the folder where you want to keep the project.
-```bash
-git clone https://github.com/kaciczak0211/systemmonitor.git
-cd systemmonitor
-```
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/kaciczak0211/systemmonitor.git
+   cd systemmonitor
+   ```
 
-Then run these commands to create a virtual environment (sandbox) and install the libraries:
-```bash
-# Create a virtual environment named 'venv'
-python3 -m venv venv
+2. **Setup Environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-# Activate the environment
-# On macOS/Linux:
-source venv/bin/activate
-# On Windows:
-# venv\Scripts\activate
-
-# Install the required libraries
-pip install psutil ttkbootstrap
-```
-
-### 2. Run the Application
-Whenever you want to use the monitor, make sure you are in the project folder and run:
-
-**Option A (Recommended)**: Run directly using the virtual environment python:
-```bash
-./venv/bin/python systemmonitor.py
-```
-
-**Option B**: Activate the environment first, then run:
-```bash
-source venv/bin/activate
-python systemmonitor.py
-```
+3. **Run**:
+   ```bash
+   python app.py
+   ```
+   Then open [http://localhost:5001](http://localhost:5001).
 
 ## Compatibility
-- **macOS**: Fully supported (tested).
-- **Linux**: Fully supported.
-- **Windows**: Should work, but disk pathing logic (`/`) may require minor tweaking for specific drive letters (e.g., `C:\`).
+- Works on macOS, Linux, and Windows.
+- Optimized for Docker Desktop.
