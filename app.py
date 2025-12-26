@@ -49,5 +49,5 @@ def metrics():
     })
 
 if __name__ == '__main__':
-    # Host='0.0.0.0' allows access from other devices on the network
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    # Run the app. Debug=False for safety.
+    app.run(debug=False, host='0.0.0.0', port=5001)
