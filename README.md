@@ -20,7 +20,13 @@ The project relies on two external libraries:
 ## Installation & Usage
 
 ### 1. Setup (First Time Only)
-Open your terminal and navigate to the project folder. Then run these commands to create a virtual environment (sandbox) and install the libraries:
+Open your terminal and navigate to the folder where you want to keep the project.
+```bash
+git clone https://github.com/kaciczak0211/systemmonitor.git
+cd systemmonitor
+```
+
+Then run these commands to create a virtual environment (sandbox) and install the libraries:
 ```bash
 # Create a virtual environment named 'venv'
 python3 -m venv venv
